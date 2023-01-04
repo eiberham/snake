@@ -3,3 +3,4 @@ macos
 .DS_Store
 **/target/**
 Cargo.lock
+*.txt

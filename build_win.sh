@@ -1,7 +1,12 @@
 #!/bin/bash
 
 rm -rf winbuild/
-./scripts/copy_resources.sh
+
+mkdir -p target/debug/
+mkdir -p target/release/
+cp -r resources target/debug/
+cp -r resources target/release/
+
 cargo rustc --release -- -Clink-args="/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
 mkdir -p winbuild
 cp -r resources winbuild/

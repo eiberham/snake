@@ -2,9 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>CFBundleExecutable</key>
-  <string>snake</string>
-  <key>CFBundleIconFile</key>
-  <string>snake.icns</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Snake</string>
+	<key>CFBundleName</key>
+	<string>snake</string>
+	<key>CFBundleIconFile</key>
+	<string>snake.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.eiberham.snake</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2022 Abraham Cedeno</string>
+	<true/>
 </dict>
 </plist>

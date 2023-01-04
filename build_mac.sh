@@ -7,6 +7,7 @@ MACOS_BIN_NAME=snake-bin
 MACOS_APP_NAME=Snake
 MACOS_APP_DIR=$MACOS_APP_NAME.app
 
+rm -rf macos
 mkdir -p macos
 cd macos
 echo "Creating app directory structure"
@@ -26,12 +27,12 @@ echo "Copying resources directory"
 cp -r ../resources $MACOS_APP_DIR/Contents/MacOS
 
 echo "Copying launcher"
-cp ../macos_launch.sh $MACOS_APP_DIR/Contents/MacOS/$MACOS_APP_NAME
+cp ../launch_mac.sh $MACOS_APP_DIR/Contents/MacOS/$MACOS_APP_NAME
 
 echo "Copying Icon"
 mkdir -p $MACOS_APP_DIR/Contents/Resources
-mv ../resources/Info.plist $MACOS_APP_DIR/Contents/
-mv ../resources/snake.icns $MACOS_APP_DIR/Contents/Resources/
+cp ../resources/Info.plist $MACOS_APP_DIR/Contents/
+cp ../resources/snake.icns $MACOS_APP_DIR/Contents/Resources/
 
 echo "Creating dmg"
 mkdir -p $MACOS_APP_NAME
