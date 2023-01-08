@@ -1,8 +1,10 @@
 [package]
 name = "snake"
+description = "snake game in rust"
 version = "0.1.0"
 resolver = "2"
 authors = ["Abraham <cedenoabraham@gmail.com>"]
+keywords = ["snake", "game"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -12,3 +14,17 @@ ggez = "0.8.0"
 rand = "0.8.5"
 smart-default = "0.6.0"
 getrandom = { version = "0.2", features = ["js"] }
+
+
+[package.metadata.bundle]
+name = "Snake"
+category = "Game"
+short_description = "The snake game"
+long_description = """
+A trivial application that just mimics the good old snake
+game in rust.  It serves as an example of an application that
+can be bundled with cargo-bundle.
+"""
+identifier = "com.eiberham.snake"
+icon = ["resources/snake.icns","resources/snake.ico"]
+resources = ["resources/*.*"]
