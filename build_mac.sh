@@ -34,12 +34,6 @@ mkdir -p $MACOS_APP_DIR/Contents/Resources
 cp ../resources/Info.plist $MACOS_APP_DIR/Contents/
 cp ../resources/snake.icns $MACOS_APP_DIR/Contents/Resources/
 
-echo "Creating dmg"
-mkdir -p $MACOS_APP_NAME
-cp -r $MACOS_APP_DIR $MACOS_APP_NAME/
-rm -rf $MACOS_APP_NAME/.Trashes
-
-FULL_NAME=$MACOS_APP_NAME
-
-hdiutil create $FULL_NAME.dmg -srcfolder $MACOS_APP_NAME -ov
-rm -rf $MACOS_APP_NAME
+echo "Setting permissions ..."
+chmod -R 777 .
+echo "Done."

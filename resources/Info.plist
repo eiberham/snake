@@ -7,21 +7,27 @@
 	<key>CFBundleExecutable</key>
 	<string>Snake</string>
 	<key>CFBundleName</key>
-	<string>snake</string>
+	<string>Snake</string>
+	<key>CFBundleDisplayName</key>
+	<string>Snake</string>
 	<key>CFBundleIconFile</key>
 	<string>snake.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.eiberham.snake</string>
+	<key>CFBundleLocalizations</key>
+	<string>en</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<key>CFBundleSpokenName</key>
+	<string>Snake</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2022 Abraham Cedeno</string>
+	<key>CFBundleVersion</key>
+	<string>0.1.0</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.13.0</string>
 	<true/>
 </dict>
 </plist>

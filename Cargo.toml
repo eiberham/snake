@@ -15,6 +15,13 @@ rand = "0.8.5"
 smart-default = "0.6.0"
 getrandom = { version = "0.2", features = ["js"] }
 
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+overflow-checks = true
+
 
 [package.metadata.bundle]
 name = "Snake"
