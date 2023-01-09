@@ -1,19 +1,16 @@
 #!/bin/bash
 
-rm -rf winbuild/
+BUNDLE_DIR=bundle_win
+rm -rf bundle_win
 
-mkdir -p target/debug/
-mkdir -p target/release/
-cp -r resources target/debug/
-cp -r resources target/release/
-
+mkdir -p $BUNDLE_DIR
 cargo rustc --release -- -Clink-args="/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
-mkdir -p winbuild
-cp -r resources winbuild/
-cp target/release/snake.exe winbuild/snake.exe
-mv winbuild/resources/logo.ico winbuild/logo.ico
+cp -r resources $BUNDLE_DIR
+cp target/release/snake.exe $BUNDLE_DIR/snake.exe
+mv $BUNDLE_DIR/resources/snake.ico $BUNDLE_DIR/snake.ico
 
-cd winbuild
-# Expects https://github.com/electron/rcedit to be on Path
-rcedit "snake.exe" --set-icon "logo.ico"
-rm logo.ico
+cd $BUNDLE_DIR
+
+# expects https://github.com/electron/rcedit to be on path
+rcedit "snake.exe" --set-icon "snake.ico"
+rm snake.ico

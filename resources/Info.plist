@@ -28,6 +28,11 @@
 	<string>0.1.0</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.13.0</string>
-	<true/>
+	<key>LSRequiresCarbon</key>
+  <true/>
+  <key>NSHighResolutionCapable</key>
+  <true/>
+	<key>CSResourcesFileMapped</key>
+  <true/>
 </dict>
 </plist>

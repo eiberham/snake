@@ -1,4 +1,4 @@
-macos
+bundle_mac
 *.aseprite
 .DS_Store
 **/target/**

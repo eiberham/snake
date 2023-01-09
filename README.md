@@ -19,39 +19,27 @@ foo@bar:~$ cd snake
 foo@bar:~$ cargo run
 ```
 
-### How to build it for mac :question:
+### How to create an installer for mac :question:
 
-Well this way I managed to build the app's bundle, it's not the most intelligent approach though but it worked for me.
-First off, run the `build_mac.sh` script within the projects folder, you'll get a bundle file within the macos folder:
+Well this way I managed to build the app's bundle and create a DMG file, following the [documentation](https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html#//apple_ref/doc/uid/20001119-110730) you can get an idea of how the bundle folder structure is.
+
+Simply run the `build_mac.sh` script within the projects folder, you'll get a DMG file within the bundle_mac folder:
 
 ```shell
 foo@bar:~$ sh build_mac.sh
 ```
 
-If it doesn't display the icon right away you can always right click over the bundle file, get information and drag and drop your own `app.icns` file.
+Now you can share it with any friend or acquaintance who owns a mac.
 
-Second step would be to create a custom `.dmg` so, in order to do that we'd need to follow these steps:
-
-1. Create a .dmg with the disk utility app:
-  > File > New image > Empty image
-
-  Screenshot images coming soon
-
-2. Create a background image for the installer:
-
-  > For this I prefered to use gimp
-
-3. Change the `.dmg` file permissions to read only.
-
-```shell
-foo@bar:~$ chmod -R a=r Snake.dmg
-```
-
-### How to build it for win :question:
+### How to create an installer for windows :question:
 
 Coming soon
 
-### :trollface: Where to download it from and how to check if the download is legit?
+### How to create an installer for linux :question:
+
+Coming soon
+
+### :trollface: For lazy ones where to download it from and how to check if the download is legit?
 
 Coming soon
 
