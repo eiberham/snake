@@ -23,15 +23,12 @@ opt-level = 3
 overflow-checks = true
 
 
-[package.metadata.bundle]
-name = "Snake"
-category = "Game"
-short_description = "The snake game"
-long_description = """
-A trivial application that just mimics the good old snake
-game in rust.  It serves as an example of an application that
-can be bundled with cargo-bundle.
-"""
-identifier = "com.eiberham.snake"
-icon = ["resources/snake.icns","resources/snake.ico"]
-resources = ["resources/*.*"]
+[package.metadata.deb]
+maintainer = "Abraham Cedeno <cedenoabraham@gmail.com>"
+copyright = "2022, Abraham Cedeno <cedenoabraham@gmail.com>"
+extended-description = """\
+A simple subcommand for the Cargo package manager for \
+building Debian packages from Rust projects."""
+depends = "$auto"
+section = "game"
+priority = "optional"
