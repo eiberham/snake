@@ -61,11 +61,11 @@ Now you should have a `.deb` package ready to be installed in a debian based lin
 
 Upon running the above commands successfully you should have the debian package placed in the `target/i686-unknown-linux-gnu` directory.
 
-### :trollface: For lazy ones where to download it from and how to check if the download is legit?
+### :trollface: For lazy ones where to download it from ?
 
 Coming soon
 
 ## :pushpin: License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 

@@ -195,7 +195,7 @@ careful of not biting your own tail.
           Some(State::Over) => {
             let mut text = Text::new(r#"
 
-Game Over Muahahaha !
+Game Oveeeeeeeeeeeeeerrrrrrrr !
 
 Don't get discouraged, you'll
 eventually get good at it.
@@ -208,7 +208,7 @@ eventually get good at it.
 
             canvas.draw(
                 &text,
-                DrawParam::from([ 32.0, 160.0 ]).color(Color::RED),
+                DrawParam::from([ 32.0, 160.0 ]).color(Color::WHITE),
             );
           }
           None => ()
