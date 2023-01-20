@@ -14,6 +14,8 @@ ggez = "0.8.0"
 rand = "0.8.5"
 smart-default = "0.6.0"
 getrandom = { version = "0.2", features = ["js"] }
+serde_json = { version = "1.0.91", default-features = false, features = ["alloc"] }
+serde = "1.0.152"
 
 [profile.dev]
 opt-level = 0

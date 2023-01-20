@@ -4,6 +4,10 @@
 //! food and roaming around the entire playground.
 //!
 
+use std::fs;
+use serde::{Deserialize, Serialize};
+use serde_json::{self, Value};
+
 use ggez::graphics::{ Image, Canvas, DrawParam, Rect };
 use ggez::audio::{ Source, SoundSource };
 use ggez::Context;
@@ -34,6 +38,19 @@ pub enum Ate {
   Food
 }
 
+#[derive(Serialize, Deserialize, Debug)]
+struct Sprite <T> {
+    frames: Vec<T>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+struct Frame <T> {
+  #[serde(rename(deserialize = "sourceSize"))]
+  source_size: T
+}
+
+#[derive(Deserialize, Debug)]
+struct Size <T>{ w: T, h: T }
 
 /// Represents the game's snake.
 ///
@@ -63,6 +80,13 @@ pub struct Snake {
   pub ate: Option<Ate>
 }
 
+
+/// TODO
+/// For better error reporting, create an enum to wrap all possible errors
+/// Use these resources as guidelines:
+/// https://stackoverflow.com/questions/73042458/how-do-i-iterate-over-a-json-list-rust
+/// https://fettblog.eu/rust-enums-wrapping-errors/
+
 impl Snake {
   /// Construct a snake representing the main character of the game.
   pub fn new() -> Snake {
@@ -83,9 +107,32 @@ impl Snake {
     }
   }
 
-  /// Draws the snake onto the canvas out of a sprite image
+  /// Draws the snake onto the canvas out of a sprite image.
+  ///
+  /// In order to calculate the offset for every tile reading the sprite.json
+  /// file is required. The formula for the offset is the following :
+  /// offset = sprite image length / tile width
+  ///
   ///
   pub fn draw(&mut self, canvas: &mut Canvas, ctx: &mut Context) -> () {
+    let sprite: Sprite<Value> = {
+      let data = fs::read_to_string("./resources/sprite.json")
+        .expect("Couldn't read the .json file");
+
+      serde_json::from_str::<Sprite<Value>>(&data).unwrap()
+    };
+
+    let frame: Frame<Value> = serde_json::from_value(
+      sprite.frames.first()
+      .unwrap()
+      .to_owned()
+    ).unwrap();
+
+    let size: Size<Value> = serde_json::from_value(frame.source_size.to_owned())
+      .unwrap();
+
+    let offset = size.h.as_f64().unwrap() as f32 / size.w.as_f64().unwrap() as f32;
+
     let image = Image::from_path(ctx, "/sprite.png").unwrap();
     for square in self.body.iter() {
       let tile = square.clone();
@@ -94,7 +141,7 @@ impl Snake {
           &image,
           DrawParam::new()
             .src(Rect::new(
-              0.166 * 5.0,
+              offset * 5.0,
               0.0,
               1.0 / 6.0,
               1.0)
@@ -103,15 +150,11 @@ impl Snake {
         );
     }
 
-    // TODO:
-    // Create the sprite image again and investigate how to export
-    // it to a .json file so that we can use the serde package to
-    // get the location of every tile.
     let src = match self.current_direction.unwrap() {
-      Direction::U => Rect::new( 0.166 * 2.0, 0.0, 1.0 / 6.0, 1.0 ),
-      Direction::L => Rect::new( 0.166 * 3.0, 0.0, 1.0 / 6.0, 1.0 ),
-      Direction::R => Rect::new( 0.166 * 4.0, 0.0, 1.0 / 6.0, 1.0 ),
-      Direction::D => Rect::new( 0.166 * 1.0, 0.0, 1.0 / 6.0, 1.0 ),
+      Direction::U => Rect::new( offset * 2.0, 0.0, 1.0 / 6.0, 1.0 ),
+      Direction::L => Rect::new( offset * 3.0, 0.0, 1.0 / 6.0, 1.0 ),
+      Direction::R => Rect::new( offset * 4.0, 0.0, 1.0 / 6.0, 1.0 ),
+      Direction::D => Rect::new( offset * 1.0, 0.0, 1.0 / 6.0, 1.0 ),
     };
 
     canvas.draw(
