@@ -28,7 +28,7 @@ foo@bar:~$ cd snake
 foo@bar:~$ cargo run
 ```
 
-### How to create an installer for mac :question:
+### Create an installer for mac
 
 This is the way I managed to build the app's bundle and create a `.dmg` file, following the [documentation](https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html#//apple_ref/doc/uid/20001119-110730) you can get an idea of how the bundle folder structure is.
 
@@ -49,6 +49,8 @@ But before doing so we have to run the `build_win.sh` script that is on the root
 foo@bar:~$ sh build_win.sh
 ```
 
+Next install the wix toolset from [here](https://github.com/wixtoolset/wix3/releases)
+
 Open a command prompt `windows + r` on your machine and run the following commands:
 
 ```dos
@@ -60,7 +62,7 @@ C:\snake\> cargo wix
 
 The windows installer (msi) for the game will be in the C:\snake\target\wix folder.
 
-### How to create an installer for linux :question:
+### What about gnu/linux :question:
 
 Simple, by using `cargo-deb`.
 
@@ -77,7 +79,7 @@ Now you should have a `.deb` package ready to be installed in a debian based lin
 
 Upon running the above commands successfully you should have the debian package placed in the `target/i686-unknown-linux-gnu` directory.
 
-### :trollface: For lazy ones where to download it from ?
+### :trollface: Where to download it from ?
 
 Coming soon
 
