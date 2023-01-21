@@ -7,7 +7,7 @@ mkdir -p $BUNDLE_DIR
 cargo rustc --release -- -Clink-args="/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
 cp -r resources $BUNDLE_DIR
 cp target/release/snake.exe $BUNDLE_DIR/snake.exe
-mv $BUNDLE_DIR/resources/snake.ico $BUNDLE_DIR/snake.ico
+cp $BUNDLE_DIR/resources/snake.ico $BUNDLE_DIR/snake.ico
 
 cd $BUNDLE_DIR
 

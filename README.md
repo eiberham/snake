@@ -42,7 +42,23 @@ Now you can share it with any friend, acquaintance or whoever owns a mac.
 
 ### What about windows :question:
 
-Coming soon
+For windows machines we can use cargo wix crate.
+But before doing so we have to run the `build_win.sh` script that is on the root folder.
+
+```shell
+foo@bar:~$ sh build_win.sh
+```
+
+Open a command prompt `windows + r` on your machine and run the following commands:
+
+```dos
+C:\> cargo install cargo-wix
+C:\> cd snake
+C:\snake\> cargo wix init
+C:\snake\> cargo wix
+```
+
+The windows installer (msi) for the game will be in the C:\snake\target\wix folder.
 
 ### How to create an installer for linux :question:
 
