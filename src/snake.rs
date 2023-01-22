@@ -4,14 +4,16 @@
 //! food and roaming around the entire playground.
 //!
 
-use std::fs;
+use std::{self, fs};
+use std::io::ErrorKind;
+use std::collections::{ LinkedList };
+
 use serde::{Deserialize, Serialize};
 use serde_json::{self, Value};
 
 use ggez::graphics::{ Image, Canvas, DrawParam, Rect };
 use ggez::audio::{ Source, SoundSource };
 use ggez::Context;
-use std::collections::{ LinkedList };
 
 use crate::food::*;
 use crate::tile::*;
@@ -117,8 +119,13 @@ impl Snake {
   pub fn draw(&mut self, canvas: &mut Canvas, ctx: &mut Context) -> () {
     let sprite: Sprite<Value> = {
       let data = fs::read_to_string("./resources/sprite.json")
-        .expect("Couldn't read the .json file");
-
+        .unwrap_or_else(| error | {
+          if error.kind() == ErrorKind::NotFound {
+            panic!("Couldn't read .json file")
+          } else {
+            panic!("Problem opening the file {:?}", error);
+          }
+        });
       serde_json::from_str::<Sprite<Value>>(&data).unwrap()
     };
 
