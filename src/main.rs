@@ -5,15 +5,14 @@ extern crate smart_default;
 mod game;
 use crate::game::*; // bring all public stuff into scope
 
-mod snake;
 mod food;
-mod tile;
 mod scene;
+mod snake;
+mod tile;
 
 use ggez::{
-    conf::{ WindowSetup, WindowMode },
-    event,
-    ContextBuilder
+    conf::{WindowMode, WindowSetup},
+    event, ContextBuilder,
 };
 use std::path;
 
