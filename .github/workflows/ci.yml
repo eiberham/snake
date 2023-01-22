@@ -1,13 +1,22 @@
 name: CI
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 jobs:
   fmt:
-    runs-on: macos-latest
+    name: fmt
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: 'stable'
+          profile: minimal
+          toolchain: stable
           override: true
-          components: rustfmt
-      - run: cargo fmt --all -- --check
+      - run: rustup component add rustfmt
+      - uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
