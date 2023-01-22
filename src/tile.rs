@@ -47,3 +47,22 @@ impl Tile {
         self.y += y;
     }
 }
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn test_move_x(){
+    let mut tile = Tile::new(32.0, 32.0);
+    tile.move_x(32.0);
+    assert_eq!(tile.x, 64.0);
+  }
+
+  #[test]
+  fn test_move_y(){
+    let mut tile = Tile::new(32.0, 32.0);
+    tile.move_y(32.0);
+    assert_eq!(tile.y, 64.0);
+  }
+}
