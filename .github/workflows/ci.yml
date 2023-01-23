@@ -8,6 +8,18 @@ jobs:
   test:
     name: tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust:
+          - stable
+          - beta
+          - nightly
+        features:
+          - --no-default-features
+          - --features track-caller
+          - --features pyo3
+          - --features auto-install
+          - --all-features
     steps:
       - uses: actions/checkout@v1
       - uses: actions-rs/toolchain@v1
