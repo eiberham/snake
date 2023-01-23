@@ -18,12 +18,10 @@ Here's a screenshot of the game:
   <img src="./snake.png" alt="snake" />
 </p>
 
-[![Crates.io](https://img.shields.io/crates/v/cargo-wix.svg)](https://crates.io/crates/cargo-wix)
 ![](https://img.shields.io/github/languages/code-size/eiberham/snake?style=flat-square)
 ![](https://img.shields.io/github/license/eiberham/snake?style=flat-square)
 ![](https://img.shields.io/github/stars/eiberham/snake?style=flat-square)
-![](https://img.shields.io/github/tests/eiberham/snake/main?style=flat-square)
-[![Build Status](https://github.com/eiberham/snake/workflows/ci/badge.svg?branch=main)](https://github.com/eiberham/snake/actions?query=branch%3main)
+[![Build Status](https://github.com/eiberham/snake/workflows/CI/badge.svg?branch=main)](https://github.com/eiberham/snake/actions?query=branch%3main)
 
 ### How to run it locally :question:
 
