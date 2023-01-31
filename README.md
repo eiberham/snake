@@ -23,6 +23,9 @@ Here's a screenshot of the game:
 ![](https://img.shields.io/github/stars/eiberham/snake?style=flat-square)
 [![Build Status](https://github.com/eiberham/snake/workflows/CI/badge.svg?branch=main)](https://github.com/eiberham/snake/actions?query=branch%3main)
 
+## :video_game: Controls
+
+To play, use arrow keys to move the snake around the screen. It eats anything but you will only get points for eating the fruit. Use `escape` to quit the game.
 ### How to run it locally :question:
 
 Run the following commands on the terminal:
