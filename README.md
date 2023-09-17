@@ -89,7 +89,7 @@ Upon running the above commands successfully you should have the debian package 
 
 ### :trollface: Where to download it from ?
 
-Download for macOS [here](https://storage.cloud.google.com/eiberham/Snake.zip?pli=1)
+- Download for mac :green_apple: [here](https://storage.cloud.google.com/eiberham/Snake.zip?pli=1)
 
 ## :pushpin: License
 
